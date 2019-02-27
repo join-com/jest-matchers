@@ -7,10 +7,13 @@ import {
   RECEIVED_COLOR,
 } from 'jest-matcher-utils';
 
-export const toHaveBeenRequestedWith = (
-  { mock }: jest.Mock<any>,
-  expected: object,
-) => {
+interface Mock {
+  mock: {
+    calls: any[];
+  };
+}
+
+export const toHaveBeenRequestedWith = ({ mock }: Mock, expected: object) => {
   const calls = mock.calls;
   const pass = calls.length > 0 && equals(calls[0][0].request, expected);
   return {
@@ -28,7 +31,7 @@ export const toHaveBeenRequestedWith = (
   };
 };
 
-const formatMismatchedCalls = (calls, expected): string => {
+const formatMismatchedCalls = (calls: any[], expected: object): string => {
   if (!calls.length) {
     return `But it was ${RECEIVED_COLOR('not called')}.`;
   }
