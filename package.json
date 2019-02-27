@@ -3,6 +3,11 @@
   "version": "1.0.0",
   "description": "Set of custom jest matchers",
   "main": "lib/index.js",
+  "types": "types/index.d.ts",
+  "files": [
+    "lib",
+    "types/index.d.ts"
+  ],
   "scripts": {
     "test": "jest",
     "lint": "tslint -p .",

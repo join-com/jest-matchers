@@ -3,7 +3,7 @@
 exports[`toHaveBeenRequestedWith fails when mock was called with different values 1`] = `
 "[2mexpect([22m[31mreceived[39m[2m).toHaveBeenRequestedWith([22m[32mexpected[39m[2m)[22m
 
-Expected value to equal:
+Expected request value to equal:
 [32m{\\"a\\": 1, \\"b\\": 1}[39m
 Received:
 [31m{\\"a\\": 1, \\"b\\": 2}[39m
@@ -18,4 +18,10 @@ Difference:
 [2m  }[22m"
 `;
 
-exports[`toHaveBeenRequestedWith fails when mock was not called 1`] = `"Cannot read property '0' of undefined"`;
+exports[`toHaveBeenRequestedWith fails when mock was not called 1`] = `
+"[2mexpect([22m[31mreceived[39m[2m).toHaveBeenRequestedWith([22m[32mexpected[39m[2m)[22m
+
+Expected request value to equal:
+[32m{\\"a\\": 1, \\"b\\": 2}[39m
+But it was [31mnot called[39m."
+`;
