@@ -1,4 +1,4 @@
-import { equals } from 'expect/build/jasmine_utils';
+import { equals } from 'expect/build/jasmineUtils';
 import diff from 'jest-diff';
 import {
   matcherHint,
