@@ -1,6 +1,6 @@
 {
   "name": "@join-com/jest-matchers",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Set of custom jest matchers",
   "main": "lib/index.js",
   "types": "types/index.d.ts",
