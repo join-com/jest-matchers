@@ -46,4 +46,38 @@ describe('toHaveBeenRequestedWith', () => {
 
     expect(validate).toThrowErrorMatchingSnapshot();
   });
+
+  it('passes when one of three calls was correct', () => {
+    const falseRequest = {
+      a: 1,
+      b: 1,
+    };
+    mockFn({ request: falseRequest });
+    mockFn({ request });
+    mockFn({ request: falseRequest });
+
+    expect(mockFn).toHaveBeenRequestedWith({
+      a: 1,
+      b: 2,
+    });
+  });
+
+  it('fails when all calls were incorrect', () => {
+    const falseRequest = {
+      a: 1,
+      b: 1,
+    };
+    mockFn({ request: falseRequest });
+    mockFn({ request: falseRequest });
+    mockFn({ request: falseRequest });
+
+    const validate = () => {
+      expect(mockFn).toHaveBeenRequestedWith({
+        a: 1,
+        b: 2,
+      });
+    };
+
+    expect(validate).toThrowErrorMatchingSnapshot();
+  });
 });
