@@ -15,7 +15,7 @@ interface Mock {
 
 export const toHaveBeenRequestedWith = ({ mock }: Mock, expected: object) => {
   const calls = mock.calls;
-  const pass = calls.length > 0 && equals(calls[0][0].request, expected);
+  const pass = calls.length > 0 && anyOfRequestsSuccedeed(calls, expected);
   return {
     pass,
     message: () => {
@@ -36,8 +36,32 @@ const formatMismatchedCalls = (calls: any[], expected: object): string => {
     return `But it was ${RECEIVED_COLOR('not called')}.`;
   }
 
-  const received = calls[0][0].request;
-  const diffString = diff(expected, received);
-  const receivedString = printReceived(received);
-  return `Received:\n${receivedString}\n` + `Difference:\n${diffString}`;
+  const messages: string[] = ['Received:'];
+  calls.map((call, index) => {
+    const received = call[0].request;
+    const diffString = diff(expected, received);
+
+    const receivedString = printReceived(received);
+    const callNumber: string =
+      calls.length > 1 ? `\ncall no.${String(index + 1)}\n` : '';
+
+    const callMessage =
+      `${callNumber}` +
+      `${receivedString}\n` +
+      'Difference:\n' +
+      `${diffString}`;
+
+    messages.push(callMessage);
+  });
+
+  if (calls.length > 1) {
+    messages.push(`\nNumber of calls: ${calls.length}`);
+  }
+  return messages.join('\n');
 };
+
+const anyOfRequestsSuccedeed = (calls: any[], expected: object): boolean =>
+  calls.reduce(
+    (acc: number[], call: any) => acc || equals(call[0].request, expected),
+    false,
+  );
