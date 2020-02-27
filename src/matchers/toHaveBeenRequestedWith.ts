@@ -43,11 +43,10 @@ const formatMismatchedCalls = (calls: any[], expected: object): string => {
 
     const receivedString = printReceived(received);
     const callNumber: string =
-      calls.length > 1 ? `call no.${String(index + 1)}` : '';
+      calls.length > 1 ? `\ncall no.${String(index + 1)}\n` : '';
 
     const callMessage =
-      'Received: \n' +
-      `${callNumber}\n` +
+      `${callNumber}` +
       `${receivedString}\n` +
       'Difference:\n' +
       `${diffString}`;
