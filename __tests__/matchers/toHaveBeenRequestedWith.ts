@@ -47,7 +47,7 @@ describe('toHaveBeenRequestedWith', () => {
     expect(validate).toThrowErrorMatchingSnapshot();
   });
 
-  it('passes when one of three calls was correct', () => {
+  it('passes if any calls was correct', () => {
     const falseRequest = {
       a: 1,
       b: 1,
