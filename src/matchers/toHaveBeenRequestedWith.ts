@@ -60,8 +60,8 @@ const formatMismatchedCalls = (calls: any[], expected: object): string => {
   return messages.join('\n');
 };
 
-const anyOfRequestsSuccedeed = (calls: any[], expected: object): boolean => {
-  return calls.reduce((acc: number[], call: any) => {
-    return acc || equals(call[0].request, expected);
-  }, false);
-};
+const anyOfRequestsSuccedeed = (calls: any[], expected: object): boolean =>
+  calls.reduce(
+    (acc: number[], call: any) => acc || equals(call[0].request, expected),
+    false,
+  );
