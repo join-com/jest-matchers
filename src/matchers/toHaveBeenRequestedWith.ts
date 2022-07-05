@@ -13,7 +13,7 @@ interface Mock {
   };
 }
 
-export const toHaveBeenRequestedWith = ({ mock }: Mock, expected: object) => {
+export const toHaveBeenRequestedWith = ({ mock }: Mock, expected: any) => {
   const calls = mock.calls;
   const pass = calls.length > 0 && anyOfRequestsSuccedeed(calls, expected);
   return {
