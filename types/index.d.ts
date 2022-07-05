@@ -2,10 +2,10 @@
 
 declare namespace jest {
   interface Matchers<R> {
-    toHaveBeenRequestedWith(value: object): object;
+    toHaveBeenRequestedWith(value: any): object;
   }
 
   interface Expect {
-    toHaveBeenRequestedWith(value: object): object;
+    toHaveBeenRequestedWith(value: any): object;
   }
 }
