@@ -1,6 +1,6 @@
-import { equals } from 'expect/build/jasmineUtils';
-import diff from 'jest-diff';
+import equal from 'fast-deep-equal'
 import {
+  diff,
   matcherHint,
   printExpected,
   printReceived,
@@ -62,6 +62,6 @@ const formatMismatchedCalls = (calls: any[], expected: object): string => {
 
 const anyOfRequestsSuccedeed = (calls: any[], expected: object): boolean =>
   calls.reduce(
-    (acc: number[], call: any) => acc || equals(call[0].request, expected),
+    (acc: number[], call: any) => acc || equal(call[0].request, expected),
     false,
   );
