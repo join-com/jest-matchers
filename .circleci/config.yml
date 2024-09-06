@@ -8,7 +8,7 @@ docker-auth: &docker-auth
 defaults: &defaults
   working_directory: ~/matchers
   docker:
-    - image: cimg/node:18.15.0
+    - image: cimg/node:20.17.0
       <<: *docker-auth
   resource_class: small
 
