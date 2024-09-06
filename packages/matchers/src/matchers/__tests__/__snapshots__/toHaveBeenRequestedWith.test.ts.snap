@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`toHaveBeenRequestedWith fails when all calls were incorrect 1`] = `
+"expect(received).toHaveBeenRequestedWith(expected)
+
+Expected request value to equal:
+{"a": 1, "b": 2}
+Received:
+
+call no.1
+{"a": 1, "b": 1}
+Difference:
+- Expected
++ Received
+
+  Object {
+    "a": 1,
+-   "b": 2,
++   "b": 1,
+  }
+
+call no.2
+{"a": 1, "b": 1}
+Difference:
+- Expected
++ Received
+
+  Object {
+    "a": 1,
+-   "b": 2,
++   "b": 1,
+  }
+
+call no.3
+{"a": 1, "b": 1}
+Difference:
+- Expected
++ Received
+
+  Object {
+    "a": 1,
+-   "b": 2,
++   "b": 1,
+  }
+
+Number of calls: 3"
+`;
+
+exports[`toHaveBeenRequestedWith fails when mock was called with different values 1`] = `
+"expect(received).toHaveBeenRequestedWith(expected)
+
+Expected request value to equal:
+{"a": 1, "b": 1}
+Received:
+{"a": 1, "b": 2}
+Difference:
+- Expected
++ Received
+
+  Object {
+    "a": 1,
+-   "b": 1,
++   "b": 2,
+  }"
+`;
+
+exports[`toHaveBeenRequestedWith fails when mock was not called 1`] = `
+"expect(received).toHaveBeenRequestedWith(expected)
+
+Expected request value to equal:
+{"a": 1, "b": 2}
+But it was not called."
+`;

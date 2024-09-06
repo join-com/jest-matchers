@@ -1,0 +1,95 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`toThrowValidationError fails for ValidationError with additional fields 1`] = `
+"- Expected fields  - 5
++ Received fields  + 0
+
+  Array [
+    Object {
+      "constraint": "mustBeCorrect",
+      "fieldName": "someField",
+      "message": "Some field must be correct but its not",
+    },
+-   Object {
+-     "constraint": "mustBeCorrectToo",
+-     "fieldName": "someOtherField",
+-     "message": "Some other field must be correct but its not",
+-   },
+  ]"
+`;
+
+exports[`toThrowValidationError fails for ValidationError with different constraint 1`] = `
+"- Expected fields  - 1
++ Received fields  + 1
+
+  Array [
+    Object {
+-     "constraint": "different",
++     "constraint": "mustBeCorrect",
+      "fieldName": "someField",
+      "message": "Some field must be correct but its not",
+    },
+  ]"
+`;
+
+exports[`toThrowValidationError fails for ValidationError with different fieldName 1`] = `
+"- Expected fields  - 1
++ Received fields  + 1
+
+  Array [
+    Object {
+      "constraint": "mustBeCorrect",
+-     "fieldName": "different",
++     "fieldName": "someField",
+      "message": "Some field must be correct but its not",
+    },
+  ]"
+`;
+
+exports[`toThrowValidationError fails for ValidationError with different fields 1`] = `
+"- Expected fields  - 3
++ Received fields  + 3
+
+  Array [
+    Object {
+-     "constraint": "mustBeCorrectToo",
+-     "fieldName": "someOtherField",
+-     "message": "Some other field must be correct but its not",
++     "constraint": "mustBeCorrect",
++     "fieldName": "someField",
++     "message": "Some field must be correct but its not",
+    },
+  ]"
+`;
+
+exports[`toThrowValidationError fails for ValidationError with different message 1`] = `
+"- Expected fields  - 1
++ Received fields  + 1
+
+  Array [
+    Object {
+      "constraint": "mustBeCorrect",
+      "fieldName": "someField",
+-     "message": "different",
++     "message": "Some field must be correct but its not",
+    },
+  ]"
+`;
+
+exports[`toThrowValidationError fails for ValidationError with no fields 1`] = `
+"- Expected fields  - 1
++ Received fields  + 7
+
+- Array []
++ Array [
++   Object {
++     "constraint": "mustBeCorrect",
++     "fieldName": "someField",
++     "message": "Some field must be correct but its not",
++   },
++ ]"
+`;
+
+exports[`toThrowValidationError fails for error of other type 1`] = `"Expected error to be an instance of ValidationError but got Error"`;
+
+exports[`toThrowValidationError fails when error is not thrown 1`] = `"Expected to receive an error or a function that throws an error"`;

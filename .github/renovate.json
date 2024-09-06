@@ -1,0 +1,67 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:base"
+  ],
+  "repositories": ["join-com/grpc"],
+  "hostRules": [
+    {
+      "hostType": "npm",
+      "matchHost": "europe-west1-npm.pkg.dev/join-dev-330413/join/"
+
+    }
+  ],
+  "ignoreDeps": [
+      "node"
+    ],
+  "ignorePaths": [
+      "Dockerfile",
+      "**/.circleci/**",
+      ".github/**"
+    ],
+  "prCreation": "immediate",
+
+  "packageRules": [
+    {
+      "groupName": "Patch & Minor Updates for @join-com and @join-private packages",
+      "groupSlug": "patch_minor_join_packages",
+      "matchUpdateTypes": ["patch","minor"],
+      "matchDepTypes": ["dependencies"],
+      "matchPackagePatterns": ["@join-com/*", "@join-private/*"],
+      "commitMessagePrefix": "build(deps):"
+    },
+    {
+      "groupName": "Patch & Minor Updates for external packages",
+      "groupSlug": "patch_minor_external_packages",
+      "matchUpdateTypes": ["patch","minor"],
+      "matchDepTypes": ["dependencies"],
+      "excludePackageNames": ["typeorm", "ioredis", "protobufjs","pg"],
+      "excludePackagePatterns": ["@join-com/*", "@join-private/*"],
+      "commitMessagePrefix": "build(deps):"
+    },
+    {
+      "matchUpdateTypes": ["patch","minor","major"],
+      "matchPackageNames": ["typeorm", "ioredis", "protobufjs", "pg"],
+      "matchDepTypes": ["dependencies"],
+      "commitMessagePrefix": "build(deps):"
+    },
+    {
+      "groupName": "Patch & Minor Updates for devDependencies",
+      "groupSlug": "patch_minor_devDependencies",
+      "matchUpdateTypes": ["patch","minor"],
+      "matchDepTypes": ["devDependencies"],
+      "commitMessagePrefix": "build(deps-dev):"
+    },
+    {
+      "matchUpdateTypes": ["major"],
+      "matchDepTypes": ["dependencies"],
+      "commitMessagePrefix": "build(deps):"
+    },
+    {
+      "matchUpdateTypes": ["major"],
+      "matchDepTypes": ["devDependencies"],
+      "commitMessagePrefix": "build(deps-dev):"
+    }
+  ]
+
+}
