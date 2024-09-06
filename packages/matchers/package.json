@@ -17,6 +17,7 @@
   "scripts": {
     "build": "tsc -p tsconfig.prod.json",
     "test": "jest",
+    "test:ci": "jest --no-color",
     "test:watch": "jest --watch",
     "lint": "yarn lint:tsc && yarn lint:eslint",
     "lint:eslint": "eslint . --ext .ts --max-warnings 0",
