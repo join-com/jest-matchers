@@ -103,7 +103,7 @@ workflows:
           filters:
             branches:
               only:
-                - main
+                - master
                 - alpha
           requires:
             - lint
