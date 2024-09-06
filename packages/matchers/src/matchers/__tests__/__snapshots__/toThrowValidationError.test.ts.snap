@@ -6,14 +6,14 @@ exports[`toThrowValidationError fails for ValidationError with additional fields
 
 [2m  Array [[22m
 [2m    Object {[22m
-[2m      \\"constraint\\": \\"mustBeCorrect\\",[22m
-[2m      \\"fieldName\\": \\"someField\\",[22m
-[2m      \\"message\\": \\"Some field must be correct but its not\\",[22m
+[2m      "constraint": "mustBeCorrect",[22m
+[2m      "fieldName": "someField",[22m
+[2m      "message": "Some field must be correct but its not",[22m
 [2m    },[22m
 [32m-   Object {[39m
-[32m-     \\"constraint\\": \\"mustBeCorrectToo\\",[39m
-[32m-     \\"fieldName\\": \\"someOtherField\\",[39m
-[32m-     \\"message\\": \\"Some other field must be correct but its not\\",[39m
+[32m-     "constraint": "mustBeCorrectToo",[39m
+[32m-     "fieldName": "someOtherField",[39m
+[32m-     "message": "Some other field must be correct but its not",[39m
 [32m-   },[39m
 [2m  ][22m"
 `;
@@ -24,10 +24,10 @@ exports[`toThrowValidationError fails for ValidationError with different constra
 
 [2m  Array [[22m
 [2m    Object {[22m
-[32m-     \\"constraint\\": \\"different\\",[39m
-[31m+     \\"constraint\\": \\"mustBeCorrect\\",[39m
-[2m      \\"fieldName\\": \\"someField\\",[22m
-[2m      \\"message\\": \\"Some field must be correct but its not\\",[22m
+[32m-     "constraint": "different",[39m
+[31m+     "constraint": "mustBeCorrect",[39m
+[2m      "fieldName": "someField",[22m
+[2m      "message": "Some field must be correct but its not",[22m
 [2m    },[22m
 [2m  ][22m"
 `;
@@ -38,10 +38,10 @@ exports[`toThrowValidationError fails for ValidationError with different fieldNa
 
 [2m  Array [[22m
 [2m    Object {[22m
-[2m      \\"constraint\\": \\"mustBeCorrect\\",[22m
-[32m-     \\"fieldName\\": \\"different\\",[39m
-[31m+     \\"fieldName\\": \\"someField\\",[39m
-[2m      \\"message\\": \\"Some field must be correct but its not\\",[22m
+[2m      "constraint": "mustBeCorrect",[22m
+[32m-     "fieldName": "different",[39m
+[31m+     "fieldName": "someField",[39m
+[2m      "message": "Some field must be correct but its not",[22m
 [2m    },[22m
 [2m  ][22m"
 `;
@@ -52,12 +52,12 @@ exports[`toThrowValidationError fails for ValidationError with different fields 
 
 [2m  Array [[22m
 [2m    Object {[22m
-[32m-     \\"constraint\\": \\"mustBeCorrectToo\\",[39m
-[32m-     \\"fieldName\\": \\"someOtherField\\",[39m
-[32m-     \\"message\\": \\"Some other field must be correct but its not\\",[39m
-[31m+     \\"constraint\\": \\"mustBeCorrect\\",[39m
-[31m+     \\"fieldName\\": \\"someField\\",[39m
-[31m+     \\"message\\": \\"Some field must be correct but its not\\",[39m
+[32m-     "constraint": "mustBeCorrectToo",[39m
+[32m-     "fieldName": "someOtherField",[39m
+[32m-     "message": "Some other field must be correct but its not",[39m
+[31m+     "constraint": "mustBeCorrect",[39m
+[31m+     "fieldName": "someField",[39m
+[31m+     "message": "Some field must be correct but its not",[39m
 [2m    },[22m
 [2m  ][22m"
 `;
@@ -68,10 +68,10 @@ exports[`toThrowValidationError fails for ValidationError with different message
 
 [2m  Array [[22m
 [2m    Object {[22m
-[2m      \\"constraint\\": \\"mustBeCorrect\\",[22m
-[2m      \\"fieldName\\": \\"someField\\",[22m
-[32m-     \\"message\\": \\"different\\",[39m
-[31m+     \\"message\\": \\"Some field must be correct but its not\\",[39m
+[2m      "constraint": "mustBeCorrect",[22m
+[2m      "fieldName": "someField",[22m
+[32m-     "message": "different",[39m
+[31m+     "message": "Some field must be correct but its not",[39m
 [2m    },[22m
 [2m  ][22m"
 `;
@@ -83,9 +83,9 @@ exports[`toThrowValidationError fails for ValidationError with no fields 1`] = `
 [32m- Array [][39m
 [31m+ Array [[39m
 [31m+   Object {[39m
-[31m+     \\"constraint\\": \\"mustBeCorrect\\",[39m
-[31m+     \\"fieldName\\": \\"someField\\",[39m
-[31m+     \\"message\\": \\"Some field must be correct but its not\\",[39m
+[31m+     "constraint": "mustBeCorrect",[39m
+[31m+     "fieldName": "someField",[39m
+[31m+     "message": "Some field must be correct but its not",[39m
 [31m+   },[39m
 [31m+ ][39m"
 `;

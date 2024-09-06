@@ -1,0 +1,110 @@
+version: 2.1
+
+docker-auth: &docker-auth
+  auth:
+    username: ${DOCKER_LOGIN}
+    password: ${DOCKER_PASSWORD}
+
+defaults: &defaults
+  working_directory: ~/matchers
+  docker:
+    - image: cimg/node:18.15.0
+      <<: *docker-auth
+  resource_class: small
+
+commands:
+  authenticate_npm:
+    description: Authenticate client with registry
+    parameters:
+      path:
+        type: string
+        default: '.'
+    steps:
+      - run:
+          name: Authenticate with GAR (.npmrc)
+          command: |
+            echo $GCLOUD_SERVICE_KEY_CI_DEV | base64 -d > ${HOME}/gcloud-service-key.json
+            GOOGLE_APPLICATION_CREDENTIALS=${HOME}/gcloud-service-key.json yarn artifactregistry-login --repo-config=<< parameters.path >>/.npmrc
+
+references:
+  remove_auth_with_registry: &remove_auth_with_registry
+    run:
+      name: Remove authentication with registry
+      command: rm .npmrc
+
+  yarn_install: &yarn_install
+    run:
+      name: yarn install
+      command: yarn --frozen-lockfile --cache-folder ~/.cache/yarn
+
+  yarn_cache_key: &yarn_cache_key yarn-lock-{{ checksum "yarn.lock" }}
+
+  save_yarn_cache: &save_yarn_cache
+    save_cache:
+      name: 'Saving Yarn Cache'
+      key: *yarn_cache_key
+      paths:
+        - ~/.cache/yarn
+
+  restore_yarn_cache: &restore_yarn_cache
+    restore_cache:
+      name: Restoring Yarn Cache
+      key: *yarn_cache_key
+
+jobs:
+  lint:
+    <<: *defaults
+    steps:
+      - checkout
+      - *restore_yarn_cache
+      - authenticate_npm
+      - *yarn_install
+      - run:
+          name: lint
+          command: yarn lint
+      - *save_yarn_cache
+      - *remove_auth_with_registry
+
+  test:
+    <<: *defaults
+    steps:
+      - checkout
+      - *restore_yarn_cache
+      - authenticate_npm
+      - *yarn_install
+      - run:
+          name: test
+          command: yarn test
+      - *save_yarn_cache
+      - *remove_auth_with_registry
+
+  release:
+    <<: *defaults
+    steps:
+      - checkout
+      - *restore_yarn_cache
+      - authenticate_npm
+      - *yarn_install
+      - run:
+          name: release
+          command: yarn release
+      - *remove_auth_with_registry
+
+workflows:
+  version: 2
+  build_test_deploy:
+    jobs:
+      - lint:
+          context: Global
+      - test:
+          context: Global
+      - release:
+          context: Global
+          filters:
+            branches:
+              only:
+                - main
+                - alpha
+          requires:
+            - lint
+            - test

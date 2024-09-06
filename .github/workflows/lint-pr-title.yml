@@ -1,0 +1,30 @@
+name: 'Lint PR title'
+
+on:
+  pull_request_target:
+    types:
+      - opened
+      - edited
+      - synchronize
+
+jobs:
+  lint:
+    if: ${{ !startsWith(github.head_ref, 'dependabot/') && !startsWith(github.head_ref, 'renovate/') }}
+    name: lint-pr-title
+    runs-on: arc-small
+    steps:
+      - name: semantic-pull-request
+        uses: amannn/action-semantic-pull-request@v5
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
+        with:
+          ignoreLabels: |
+            bot
+            ignore-semantic-pull-request
+            dependencies
+          wip: false
+          subjectPattern: ^((JOIN-\d+([, ]JOIN-\d+)*)|TECH) (?![A-Z]).+$
+          subjectPatternError: |
+            The subject "{subject}" found in the pull request title "{title}"
+            didn't match the configured pattern. Please ensure that the subject
+            doesn't start with an uppercase character and includes jira ticket.

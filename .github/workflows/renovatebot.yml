@@ -1,0 +1,25 @@
+name: Renovate
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 1 * *'
+
+jobs:
+  renovate:
+    runs-on: arc-small
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Self-hosted Renovate
+        uses: renovatebot/github-action@v40.1.11
+        with:
+          configurationFile: .github/renovate.json
+          token: ${{ secrets.GH_PAT }}
+        env:
+          LOG_LEVEL: 'debug'
+          RENOVATE_NPMRC: |
+            registry=https://europe-west1-npm.pkg.dev/join-dev-330413/join/
+            //europe-west1-npm.pkg.dev/join-dev-330413/join/:always-auth=true
+            //europe-west1-npm.pkg.dev/join-dev-330413/join/:username=${{ secrets.GAR_USERNAME }}
+            //europe-west1-npm.pkg.dev/join-dev-330413/join/:_password=${{ secrets.GAR_PASSWORD }}
