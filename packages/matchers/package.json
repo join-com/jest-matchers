@@ -16,9 +16,9 @@
   },
   "scripts": {
     "build": "tsc -p tsconfig.prod.json",
-    "test": "jest",
+    "test": "jest --no-color",
     "test:ci": "jest --no-color",
-    "test:watch": "jest --watch",
+    "test:watch": "yarn test --watch",
     "lint": "yarn lint:tsc && yarn lint:eslint",
     "lint:eslint": "eslint . --ext .ts --max-warnings 0",
     "lint:tsc": "tsc --noEmit",
