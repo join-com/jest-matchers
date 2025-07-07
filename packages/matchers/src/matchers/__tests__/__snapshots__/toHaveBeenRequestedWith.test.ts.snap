@@ -1,73 +1,73 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`toHaveBeenRequestedWith fails when all calls were incorrect 1`] = `
-"expect(received).toHaveBeenRequestedWith(expected)
+"[2mexpect([22m[31mreceived[39m[2m).toHaveBeenRequestedWith([22m[32mexpected[39m[2m)[22m
 
 Expected request value to equal:
-{"a": 1, "b": 2}
+[32m{"a": 1, "b": 2}[39m
 Received:
 
 call no.1
-{"a": 1, "b": 1}
+[31m{"a": 1, "b": 1}[39m
 Difference:
-- Expected
-+ Received
+[32m- Expected[39m
+[31m+ Received[39m
 
-  Object {
-    "a": 1,
--   "b": 2,
-+   "b": 1,
-  }
+[2m  Object {[22m
+[2m    "a": 1,[22m
+[32m-   "b": 2,[39m
+[31m+   "b": 1,[39m
+[2m  }[22m
 
 call no.2
-{"a": 1, "b": 1}
+[31m{"a": 1, "b": 1}[39m
 Difference:
-- Expected
-+ Received
+[32m- Expected[39m
+[31m+ Received[39m
 
-  Object {
-    "a": 1,
--   "b": 2,
-+   "b": 1,
-  }
+[2m  Object {[22m
+[2m    "a": 1,[22m
+[32m-   "b": 2,[39m
+[31m+   "b": 1,[39m
+[2m  }[22m
 
 call no.3
-{"a": 1, "b": 1}
+[31m{"a": 1, "b": 1}[39m
 Difference:
-- Expected
-+ Received
+[32m- Expected[39m
+[31m+ Received[39m
 
-  Object {
-    "a": 1,
--   "b": 2,
-+   "b": 1,
-  }
+[2m  Object {[22m
+[2m    "a": 1,[22m
+[32m-   "b": 2,[39m
+[31m+   "b": 1,[39m
+[2m  }[22m
 
 Number of calls: 3"
 `;
 
 exports[`toHaveBeenRequestedWith fails when mock was called with different values 1`] = `
-"expect(received).toHaveBeenRequestedWith(expected)
+"[2mexpect([22m[31mreceived[39m[2m).toHaveBeenRequestedWith([22m[32mexpected[39m[2m)[22m
 
 Expected request value to equal:
-{"a": 1, "b": 1}
+[32m{"a": 1, "b": 1}[39m
 Received:
-{"a": 1, "b": 2}
+[31m{"a": 1, "b": 2}[39m
 Difference:
-- Expected
-+ Received
+[32m- Expected[39m
+[31m+ Received[39m
 
-  Object {
-    "a": 1,
--   "b": 1,
-+   "b": 2,
-  }"
+[2m  Object {[22m
+[2m    "a": 1,[22m
+[32m-   "b": 1,[39m
+[31m+   "b": 2,[39m
+[2m  }[22m"
 `;
 
 exports[`toHaveBeenRequestedWith fails when mock was not called 1`] = `
-"expect(received).toHaveBeenRequestedWith(expected)
+"[2mexpect([22m[31mreceived[39m[2m).toHaveBeenRequestedWith([22m[32mexpected[39m[2m)[22m
 
 Expected request value to equal:
-{"a": 1, "b": 2}
-But it was not called."
+[32m{"a": 1, "b": 2}[39m
+But it was [31mnot called[39m."
 `;

@@ -1,9 +1,8 @@
-/* eslint-disable @typescript-eslint/ban-types */
 import equal from 'fast-deep-equal'
 import { printDiffOrStringify } from 'jest-matcher-utils'
 import { ValidationError } from '../ValidationError'
 
-function getThrown(received: Error | Function): Error | undefined {
+function getThrown(received: Error | (() => void)): Error | undefined {
   if (received instanceof Error) {
     return received
   }
@@ -18,7 +17,7 @@ function getThrown(received: Error | Function): Error | undefined {
 }
 
 export function toThrowValidationError<T extends ValidationError>(
-  received: Error | Function,
+  received: Error | (() => void),
   expected: T,
 ): jest.CustomMatcherResult {
   const thrown = getThrown(received)

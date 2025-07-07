@@ -1,93 +1,93 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`toThrowValidationError fails for ValidationError with additional fields 1`] = `
-"- Expected fields  - 5
-+ Received fields  + 0
+"[32m- Expected fields  - 5[39m
+[31m+ Received fields  + 0[39m
 
-  Array [
-    Object {
-      "constraint": "mustBeCorrect",
-      "fieldName": "someField",
-      "message": "Some field must be correct but its not",
-    },
--   Object {
--     "constraint": "mustBeCorrectToo",
--     "fieldName": "someOtherField",
--     "message": "Some other field must be correct but its not",
--   },
-  ]"
+[2m  Array [[22m
+[2m    Object {[22m
+[2m      "constraint": "mustBeCorrect",[22m
+[2m      "fieldName": "someField",[22m
+[2m      "message": "Some field must be correct but its not",[22m
+[2m    },[22m
+[32m-   Object {[39m
+[32m-     "constraint": "mustBeCorrectToo",[39m
+[32m-     "fieldName": "someOtherField",[39m
+[32m-     "message": "Some other field must be correct but its not",[39m
+[32m-   },[39m
+[2m  ][22m"
 `;
 
 exports[`toThrowValidationError fails for ValidationError with different constraint 1`] = `
-"- Expected fields  - 1
-+ Received fields  + 1
+"[32m- Expected fields  - 1[39m
+[31m+ Received fields  + 1[39m
 
-  Array [
-    Object {
--     "constraint": "different",
-+     "constraint": "mustBeCorrect",
-      "fieldName": "someField",
-      "message": "Some field must be correct but its not",
-    },
-  ]"
+[2m  Array [[22m
+[2m    Object {[22m
+[32m-     "constraint": "different",[39m
+[31m+     "constraint": "mustBeCorrect",[39m
+[2m      "fieldName": "someField",[22m
+[2m      "message": "Some field must be correct but its not",[22m
+[2m    },[22m
+[2m  ][22m"
 `;
 
 exports[`toThrowValidationError fails for ValidationError with different fieldName 1`] = `
-"- Expected fields  - 1
-+ Received fields  + 1
+"[32m- Expected fields  - 1[39m
+[31m+ Received fields  + 1[39m
 
-  Array [
-    Object {
-      "constraint": "mustBeCorrect",
--     "fieldName": "different",
-+     "fieldName": "someField",
-      "message": "Some field must be correct but its not",
-    },
-  ]"
+[2m  Array [[22m
+[2m    Object {[22m
+[2m      "constraint": "mustBeCorrect",[22m
+[32m-     "fieldName": "different",[39m
+[31m+     "fieldName": "someField",[39m
+[2m      "message": "Some field must be correct but its not",[22m
+[2m    },[22m
+[2m  ][22m"
 `;
 
 exports[`toThrowValidationError fails for ValidationError with different fields 1`] = `
-"- Expected fields  - 3
-+ Received fields  + 3
+"[32m- Expected fields  - 3[39m
+[31m+ Received fields  + 3[39m
 
-  Array [
-    Object {
--     "constraint": "mustBeCorrectToo",
--     "fieldName": "someOtherField",
--     "message": "Some other field must be correct but its not",
-+     "constraint": "mustBeCorrect",
-+     "fieldName": "someField",
-+     "message": "Some field must be correct but its not",
-    },
-  ]"
+[2m  Array [[22m
+[2m    Object {[22m
+[32m-     "constraint": "mustBeCorrectToo",[39m
+[32m-     "fieldName": "someOtherField",[39m
+[32m-     "message": "Some other field must be correct but its not",[39m
+[31m+     "constraint": "mustBeCorrect",[39m
+[31m+     "fieldName": "someField",[39m
+[31m+     "message": "Some field must be correct but its not",[39m
+[2m    },[22m
+[2m  ][22m"
 `;
 
 exports[`toThrowValidationError fails for ValidationError with different message 1`] = `
-"- Expected fields  - 1
-+ Received fields  + 1
+"[32m- Expected fields  - 1[39m
+[31m+ Received fields  + 1[39m
 
-  Array [
-    Object {
-      "constraint": "mustBeCorrect",
-      "fieldName": "someField",
--     "message": "different",
-+     "message": "Some field must be correct but its not",
-    },
-  ]"
+[2m  Array [[22m
+[2m    Object {[22m
+[2m      "constraint": "mustBeCorrect",[22m
+[2m      "fieldName": "someField",[22m
+[32m-     "message": "different",[39m
+[31m+     "message": "Some field must be correct but its not",[39m
+[2m    },[22m
+[2m  ][22m"
 `;
 
 exports[`toThrowValidationError fails for ValidationError with no fields 1`] = `
-"- Expected fields  - 1
-+ Received fields  + 7
+"[32m- Expected fields  - 1[39m
+[31m+ Received fields  + 7[39m
 
-- Array []
-+ Array [
-+   Object {
-+     "constraint": "mustBeCorrect",
-+     "fieldName": "someField",
-+     "message": "Some field must be correct but its not",
-+   },
-+ ]"
+[32m- Array [][39m
+[31m+ Array [[39m
+[31m+   Object {[39m
+[31m+     "constraint": "mustBeCorrect",[39m
+[31m+     "fieldName": "someField",[39m
+[31m+     "message": "Some field must be correct but its not",[39m
+[31m+   },[39m
+[31m+ ][39m"
 `;
 
 exports[`toThrowValidationError fails for error of other type 1`] = `"Expected error to be an instance of ValidationError but got Error"`;
