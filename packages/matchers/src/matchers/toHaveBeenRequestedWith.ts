@@ -58,6 +58,7 @@ const equal = (request: Record<string, unknown>, expected: unknown): boolean => 
   try {
     expect(request).toEqual(expected)
     return true
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
   } catch (e) {
     return false
   }
