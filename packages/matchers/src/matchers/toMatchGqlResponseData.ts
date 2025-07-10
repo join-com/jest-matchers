@@ -38,7 +38,7 @@ const responseMatches = <E extends object>(responseData: unknown, expectedData: 
   try {
     expect(responseData).toMatchObject(expectedData)
     return true
-  } catch (e) {
+  } catch (_e) {
     return false
   }
 }
