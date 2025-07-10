@@ -19,8 +19,8 @@
     "test": "FORCE_COLOR=false jest",
     "test:ci": "FORCE_COLOR=false jest",
     "test:watch": "FORCE_COLOR=false jest --watch",
-    "lint": "yarn lint:tsc && yarn lint:eslint",
     "lint:eslint": "eslint . --ext .ts --max-warnings 0",
+    "lint": "yarn lint:tsc && yarn lint:eslint",
     "lint:tsc": "tsc --noEmit",
     "prepublishOnly": "yarn lint && yarn build"
   },
