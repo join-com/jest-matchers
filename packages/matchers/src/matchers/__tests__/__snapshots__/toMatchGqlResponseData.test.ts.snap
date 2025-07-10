@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`toMatchGqlResponseData fails when response data do not match expected 1`] = `
+"expect(received).toMatchGqlResponseData(expected)
+
+Expected response data to match:
+{"a": 3, "b": 4}
+{"a": 1, "b": 2}
+Difference:
+- Expected
++ Received
+
+  Object {
+-   "a": 1,
+-   "b": 2,
++   "a": 3,
++   "b": 4,
+  }"
+`;

@@ -32,7 +32,7 @@
     "node": ">=14.0.0"
   },
   "devDependencies": {
-    "@join-private/eslint-config-backend": "^2.0.3",
+    "@join-private/eslint-config-backend": "^2.1.0",
     "@types/expect": "^24.3.2",
     "@types/jest": "^30.0.0",
     "@types/node": "^24.0.10",
